@@ -1,5 +1,7 @@
 # ingatlannyilvantarto.hu inofficial SDK
 
+This SDK is kindly sponsored by [ÁtriumPark Ingatlaniroda](http://atriumparkingatlan.hu/).
+
 ## Installation
 
 You **MUST** use composer! This thing doesn't work without it! (If you don't know what composer is or how to use it, we
