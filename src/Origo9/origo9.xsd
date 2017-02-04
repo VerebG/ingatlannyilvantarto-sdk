@@ -1,0 +1,1032 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" >
+    <xs:element name="Api">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="ingatlan">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="Ingatlan">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Ingatlan" type="Ingatlan"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="megbizo">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="Megbizok">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Megbizo" type="Megbizo"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Helyiseg">
+        <xs:attribute name="HelyisegKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Helyiség egyedi azonosítója</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HelyisegTipusKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Helyiség típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BurkolatKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Burkolat kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Meret" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Helyiség mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Terasz" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Terasz mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LakoHelyiseg" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Lakóhelyiség (I/N)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HelyisegTipusMegnevezes" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Helyiség típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Megjegyzes" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Megjegyzés</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BurkolatMegnevezes" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Burkolat típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="Fenykep">
+        <xs:attribute name="FenykepKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>A fénykép egyedi azonosítója</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TipusKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Fénykép típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Sorszam" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Sorszám</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Kiemelt" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kiemelt-e a kép</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Publikus" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>A kép megjeleníthető-e a weboldalon</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Utvonal" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>A kép elérésének útvonala az Origo9 szerverén</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FotoTipusMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Kép típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="Ingatlan">
+        <xs:attribute name="IngatlanKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Az ingatlan egyedi azonosítója</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="JogviszonyKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>A jogviszonyt jelző törzsadat kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="JogviszonyMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Jogviszony megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HivatalosBesorolasKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Hivatalos besorolás kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HivatalosBesorolasMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>A hivatalos besorolás megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HasznalhatoHivatalosBesorolasKodok" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Egyéb használható besorolások kódjai</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HasznHivatBesMegnevezesek" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Egyéb használható besorolások megnevezései</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TelepulesKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Az ingatlanhoz tartozó település kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TelepulesMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Az ingatlanhoz tartozó település megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="UtcaNev" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Az ingatlan valós címének utca és házszám tagja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HirdetettUtca" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>A hirdetésben megjelenő utcanév</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Latitude" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Google szélességi koordinára</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Longitude" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Google hosszúsági koordináta</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TeljesCim" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Google által kezelt teljes cím</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="VarosreszKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Az ingatlanhoz tartozó városrész kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="VarosreszMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Az ingatlanhoz tartozó városrész megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Meret" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Az ingatlan mérete.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiAr" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Az ingatlan eladási ára</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiValutaKOD" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Az eladási árhoz tartozó valutakód</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiArVonatkozasKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Az eladási ár érvényességi köre</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiArEUR" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Eladási ár Euróban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDij" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Bérleti díj</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijValutaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Bérleti díjhoz ratozó valutakód</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijVonatkozasKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Bérleti díj érvényességi köre</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijEUR" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Bérleti díj Euróban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiArOsszesHUF" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Eladási ár Forintban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiArNmHUF" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Négyzetméter ár Forintban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijOsszesHUF" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Bérleti díj Forintban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijNmHUF" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Négyzetméter szerinti bérleti díj forinban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiArOsszesEUR" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Eladási ár Euróban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EladasiArNmEUR" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Négyzetméter ár Euróban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijOsszesEUR" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Bérleti díj Euróban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerletiDijNmEUR" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Négyzetméter szerinti bérleti díj Euróban (számított érték)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BesorolasKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlan besorolásának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BesorolasMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlan besorolásának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EpuletAnyagKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Építőanyag kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EpuletAnyagMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Építőanyag megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FutesModKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Fűtési mód kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FutesiModMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Fűtési mód megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EpuletAllapotaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Épület állapotának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EpuletAllapotMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Épület állapotának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BelsoAllapotKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Épület belső állapotának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BelsoAllapotMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Épület belső állapotának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EpitesEve" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlan építésének éve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FelujitasEve" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlan felújításának éve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FelujitasModja" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Felújítás módjának leírása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EmeletKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Emelet kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EmeletMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Emelet megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Tetoter" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Tetőtéri ingatlan-e.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KlimaFelszereltsegKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Klíma felszereltség kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KlimaFelszereltsegMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Klíma felszereltség megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="NezetKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlan elhelyezkedés szerinti nézetének kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="NezetMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlan elhelyezkedés szerinti nézetének megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozosKoltseg" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Közös költség összege</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozosKoltsegDevizaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Közös költség valutaneme</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozosKoltsegDevizaMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Közös költség valutaneme</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozosKoltsegTartamla" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Mit tartalmaz a közös költség</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozosKoltsegVonatkozasKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Közös költség érvényességi köre </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KoltozesIdeje" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Beköltösés idejének leírása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ParkolasTipusKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Parkolás típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ParkolasTipusMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Parkolás megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EnergetikaiBesorolasKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Energetiaki besorolás kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EnergetikaiBesorolasMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Energetikai besorolás megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KiallitasNapja" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Energetikai besorolás kiállításának dátuma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TeruletNeve" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Terület neve, amelyen az ingatlan elhelyezkedik</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EpuletNeve" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Épület neve, amelyben az ingatlan megtalálható</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LakasokSzama" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Lakások száma a házban, ingatlanban</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LiftKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Lift típus kód</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LiftMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Lift típus megnevezés</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuVizKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Vízközmű típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuVizMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Vízközmű típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuVillanyKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Eletromos közmű típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuVillanyMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Eletromos közmű típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuGazKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Gáz közmű típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuGazMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Gáz közmű típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuCsatornaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Csatornázottság kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuCsatornaMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Csatornázottság megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ButorozottsagKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Bútorozottság típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ButorozottsagMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Bútorozottság típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="SajatTelekMerete" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó saját telek mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Kaucio" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kaució</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KaucioDevizaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kaucióhoztartozó valutakód</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KaucioDevizaMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Kaucióhoztartozó valuta megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KisallatTartas" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kisállat tartható-e.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HirdetesSzovege" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Hírdetési oldalon megjelenő hírdetési szöveg.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TovabbiOvezet" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ipari ingatlan esetén további övezet</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Szelesseg" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Telek szélessége</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Hosszusag" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Telek hosszúsága</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LejtesiSzog" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Telek lejtési szöge</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BeepithetosegMerteke" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Telek beépíthetőségének mértéke</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FoldAlattiBeepithetoseg" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Föld alatti beépíthetőség mértéke</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="SzintteruletiMutato" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Szintterületi mutató</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ProfilvaltasLehetosege" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kereskedelmi ingatlan esetén a profilváltás lehetősége</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="CegkentIsElado" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Cégnént is eladó</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BerlovelElado" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Bérlővel eladó</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuGazLeiras" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Gázközmű típusának leírása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuVizLeiras" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Vízközmű típusának leírása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuVillanyLeiras" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Elektromos közmű típusának leírása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KozmuCsatornaLeiras" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Csatonázottság típusának leírása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Szanto" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén szántó mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Gyep" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén gyep mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Szolo" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén szőlő mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Kert" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén kert mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Gyumolcsos" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén gyümölcsös mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Halasto" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén halastó mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Nadas" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén nádas mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Erdo" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén erdő mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Baromfi" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén baromfitelep mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Sertes" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén sertéstelep mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Marha" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén marhatelep mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Juh" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén juhtelep mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Lo" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén lótelep mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="AranykoronaErtek" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Aranykorona érték</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="EgyebEpuletMerete" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Egyéb épület mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="RogzitUgyintezoKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Rögíztést végző referens kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="RogzitUgyintezoNev" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Rögíztést végző referens neve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ModositasDatuma" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>Utolsó módosítás dátuma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlant rögzítő iroda kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaNev" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlant rögzítő iroda neve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaTelefon" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó iroda telefonszáma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaEmail" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó iroda e-mail címe</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaCim" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Iroda címe</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HazSzam" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó házszám</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HelyrajziSzam" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlan helyrajzi száma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MinimumEladasiAr" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Eladási ár minimum</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MinimumEladasiDevizaKOD" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Eladási ár minimumhoz tartozó valutakód</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MinimumBerletiDij" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Minimális bérleti díj</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MinimumBerletiDijDevizaKOD" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Minimális bérleti díjhoz tartozó valutakód</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KapottJutalekEladasnal" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Kapott jutalék eladásnál</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KapottJutalekBerletnel" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Kapott jutalék bérlésnél</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MegbizasKezdete" type="xs:date">
+            <xs:annotation>
+                <xs:documentation>Megbízás kezdete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MegbizasVege" type="xs:date">
+            <xs:annotation>
+                <xs:documentation>Megbízás vége</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaiIktatoSzam" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Iroda iktató szám</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BizalmasMegjegyzes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Bizalmas megjegyzés</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MegbizoKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó megbízó kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MegbizoMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó megbízó neve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Tajolas" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlan tájolása</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IngatlanTipusKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlan típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IngatlanTipusMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlan típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="OvezetKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Övezet kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="OvezetMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Övezet megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KereskedelmiFunkcioKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kereskedelmi ingatlan esetén a funkció kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KereskedelmiFunkcioMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Kereskedelmi ingatlan esetén a funkció megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KiadoTeruletTipusKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kiadó terület típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KiadoTeruletTipusMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Kiadó terület típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KiemeltKep" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Kiemelt kép azonosítója</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KiemeltKepUtvonal" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Kiemelt kép elérési útvonala az Origo9 szerverén</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HasznalhatoKereskedelmiFunkcioKodok" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Használható kereskedelmi funkciók kódjai</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HasznalhatoFunkcioNevek" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Használható kereskedelmi funkciók megnevezései</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FoMuvelesiAgKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén a fő megművelés ág kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FoMuvelesiAgMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén a fő megművelés ág megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HasznalhatoMuvelesiAgKodok" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén a használható megművelés ág kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HasznalhatoMuvelesiAgNevek" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Mezőgazdasági ingatlan esetén a használható megművelés ág megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="GarazsTipusKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Garázs típusának kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="GarazsTipusMegnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Garázs típusának megnevezése</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HalozatiIrodaKodok" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Hálózati irodék kódjai amelyek számára az ingatlan megosztásra került</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ReferensKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó referens kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ReferensNev" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó referens neve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ReferensEmail" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó referens e-mail címe</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ReferensTelefon" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Ingatlanhoz tartozó referens telefonszáma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HalozatiMegosztasKodok" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Hálózatók kódjai, amelyek számára az ingatlan megosztásra került.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HalozatiJutalekEladasnal" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Eladási jutalék hálózati értékesítés esetén</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HalozatiJutalekBerletnel" type="xs:double">
+            <xs:annotation>
+                <xs:documentation>Bérbeadási jutalék hálózati értékesítés esetén</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HalozatraMegosztva" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Megosztva egy, vagy több hálózatra</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="HalozatNevek" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Hálózatok nevei, amelyekre meg lett osztva az ingatlan</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LakoHelyisegekSzama" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Lakóhelyiségek száma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="SzobakSzama" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Szobák száma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FelszobakSzama" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Félszobák száma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="OsszTeraszMeret" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Teraszok mérete</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType><!-- Created with Liquid XML Studio Designer Edition 8.0.11.2171 (http://www.liquid-technologies.com) -->
+    <xs:complexType name="Megbizo">
+        <xs:attribute name="MegbizoKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Megbízó egyedi azonosítója</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="RogzitUgyintezoKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Megbízót rögzítő referens kódja</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaKOD" type="xs:int">
+            <xs:annotation>
+                <xs:documentation>Irodakód, amelyhez a megbízó tartozik</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Megnevezes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Megbízó neve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Telefon" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Megbízó telefonszáma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Fax" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Megbízó fax száma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Email" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Megbízó e-mail címe</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Cim" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Megbízó elérhetőségi címe</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="AzonositoOkmany" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Azonosító okmány típusa</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="RogzitUgyintezoNev" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Rögzítést végző referens neve</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ModositasDatuma" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>Utolsó módosítás dátuma</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Megjegyzes" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Megjegyzés</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IrodaNev" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Iroda neve, amelyhez a megbízó tartozik</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>
