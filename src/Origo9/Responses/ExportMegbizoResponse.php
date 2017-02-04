@@ -5,8 +5,9 @@ namespace Janoszen\Ingatlannyilvantarto\Origo9\Responses;
 use Janoszen\Ingatlannyilvantarto\Origo9\WorkingObjects\Megbizo;
 use Psr\Log\LoggerInterface;
 use SimpleXMLElement;
+use Traversable;
 
-class ExportMegbizoResponse extends AbstractResponse {
+class ExportMegbizoResponse extends AbstractResponse implements \IteratorAggregate {
 	/**
 	 * @var Megbizo[]
 	 */
@@ -24,6 +25,10 @@ class ExportMegbizoResponse extends AbstractResponse {
 	 */
 	public function getMegbizok() {
 		return $this->megbizok;
+	}
+
+	public function getIterator() {
+		return new \ArrayIterator($this->megbizok);
 	}
 
 	public static function fromResponse(SimpleXMLElement $response) {
